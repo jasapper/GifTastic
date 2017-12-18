@@ -10,21 +10,22 @@
     <title>GIPHtastic!</title>
 </head>
 <body>
-
-        <h1>Select a movie subject:</h1>
-  
-        <div id="button-panel"></div>
-  
-        <form id="subject-form">
-          <label for="subject-input">Add a movie subject</label>
-          <input type="text" id="subject-input" >
-          <input id="addSubject" type="submit" value="Sumbit">
-        </form>
-
-        <div id="giph-panel" data-state="still" ></div>
-
-  
-    
+<div class="container">
+  <div class="jumbotron">
+    <h1>GIPHtastic Movie Edition!</h1>
+    <h2>Select a movie subject or add your own below:</h2>
+    <div id="button-panel"></div>
+      <form class="form-inline" id="subject-form">
+        <div class="form-group">
+          <label for="subject-input">Add a movie subject:</label>
+          <input type="text" id="subject-input">
+        </div>
+        <button id="addSubject" type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <hr>
+    <div id="giph-panel" data-state="still" ></div>
+  </div>
+</div>
 <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script type="text/javascript" src="assets/javascript/giphtastic.js"></script>
 </body>

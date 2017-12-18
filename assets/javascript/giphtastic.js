@@ -10,7 +10,7 @@ function buttonCreate(){
     for ( var i=0; i < subject.length; i++) {
 
         var a = $('<button>');
-        a.addClass('buttonClick');
+        a.addClass('buttonClick btn btn-primary btn-lg');
         a.attr('data-name', subject[i]);
         a.text(subject[i]);
         $('#button-panel').append(a);
@@ -46,8 +46,8 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonSubject + "&api
                 $('#giph-panel').prepend(imageSubject);
                 imageSubject.on('click', stateClick);
                 
-                // Rating logic (limiting?)
-                    var rating = results[j].rating;
+                // Rating logic (to do: limiting to SFW?)
+                    var rating = results[j].rating.toUpperCase();
                         // console.log(rating);
                     var showRating= $('<p>').text("Rating: " + rating);
                     $('#giph-panel').prepend(showRating);
@@ -58,7 +58,7 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonSubject + "&api
     // Button click function (still <-> animated)
     function stateClick() { 
                 var state = $(this).attr('data-state');
-                console.log(state);
+                // console.log(state);
              if ( state == 'still'){
                  $(this).attr('src', $(this).data('animate'));
                   $(this).attr('data-state', 'animate');
@@ -77,7 +77,7 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonSubject + "&api
 // Adding new button(s)
 $(document).on('click', '#addSubject', function(){
 if ($('#subject-input').val().trim() == ''){
-  alert('Input can not be left blank');
+  alert('Please enter something first!');
 }
 else {
 var buttonSubject = $('#subject-input').val().trim();
